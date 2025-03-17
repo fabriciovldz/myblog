@@ -22,6 +22,9 @@ export default function Auth({ user, setUser, auth, provider }) {
 
 	return (
 		<div className="auth-container">
+			<div className="logo">
+				<h1>MyBlog</h1>
+			</div>
 			{user ? (
 				<button onClick={handleSignOut}>Cerrar sesión</button>
 			) : (
