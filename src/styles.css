@@ -6,13 +6,22 @@ body {
 }
 
 .container {
-	max-width: 600px;
+	max-width: 1300px;
 	margin: auto;
 	background: rgb(0, 0, 0);
-	padding: 20px;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
-.logo {
+
+.auth-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #222;
+	color: white;
+	padding: 15px;
+  }
+
+  .logo h1 {
 	font-size: 24px; /* Tamaño grande para destacar */
 	font-weight: bold; /* Texto en negrita */
 	font-family: 'Arial', sans-serif; /* Fuente moderna */
@@ -29,22 +38,7 @@ body {
 	top: 10px;
 	left: 10px;
 	z-index: 1000;
-  }
-
-/* .auth-container {
-	text-align: center;
-	margin-bottom: 20px;
-} */
-
-.auth-container {
-	display: flex;
-	justify-content: center; /* Centra el contenido horizontalmente */
-	align-items: center;     /* Centra el contenido verticalmente */
-	height: 92vh;           /* Hace que el contenedor ocupe toda la altura de la ventana */
-	background-image: url('https://poptv.orange.es/wp-content/uploads/sites/3/2023/06/ia-01.jpg'); /* Coloca aquí la URL de tu imagen */
-	background-size: cover;  /* Asegura que la imagen cubra toda el área */
-	background-position: center; /* Centra la imagen */
-	flex-direction: column;  /* Hace que los botones estén apilados verticalmente */
+	margin: 0;
   }
 
 .post-form input,
@@ -66,33 +60,32 @@ body {
 	height: auto;
 }
 
-/* button {
-	background: #007bff;
-	color: white;
+.auth-button button {
+	background: linear-gradient(45deg, #ffe341, #ff4b2b);
+	color: rgb(0, 0, 0);
 	border: none;
-	padding: 8px;
+	padding: 10px;
 	cursor: pointer;
-}
-
-button:hover {
-	background: #0056b3;
-} */
-
-button {
-	padding: 12px 24px; /* Espaciado dentro del botón */
-	font-size: 16px;    /* Tamaño de la fuente */
-	border: none;       /* Elimina el borde predeterminado */
-	border-radius: 5px; /* Bordes redondeados */
-	cursor: pointer;    /* Cambia el cursor cuando pasa sobre el botón */
-	transition: background-color 0.3s ease; /* Efecto de transición para el fondo */
-	margin: 10px 0;      /* Espaciado entre los botones */
-	background-color: rgba(255, 255, 255, 0.599); /* Fondo translúcido para el botón */
-	color: #333;         /* Color de texto */
-	font-weight: bold;   /* Negrita para el texto */
   }
-  button:hover {
-    background-color: white; /* Cambia a blanco al pasar el cursor */
-}
+  .auth-button button:hover {
+	background: linear-gradient(45deg, #aaaaaa, #ffffff);
+	color: rgb(0, 0, 0);
+	transform: scale(1.05);
+  }
+
+  .github-button {
+	background-color: #000000; /* Color de GitHub */
+  }
+  
+  .github-button:hover {
+	background-color: rgb(0, 0, 0);
+	color: #24292e;
+  }
+  .button-icon {
+	width: 20px;  /* Ajusta el tamaño del icono */
+	height: 20px;
+	vertical-align: middle;
+  }
 
 .user-avatar,
 .comment-avatar {
