@@ -17,7 +17,6 @@ body {
 	justify-content: space-between;
 	align-items: center;
 	background-color: #222;
-	color: white;
 	padding: 15px;
   }
 
@@ -69,22 +68,6 @@ body {
   }
   .auth-button button:hover {
 	background: linear-gradient(45deg, #aaaaaa, #ffffff);
-	color: rgb(0, 0, 0);
-	transform: scale(1.05);
-  }
-
-  .github-button {
-	background-color: #000000; /* Color de GitHub */
-  }
-  
-  .github-button:hover {
-	background-color: rgb(0, 0, 0);
-	color: #24292e;
-  }
-  .button-icon {
-	width: 20px;  /* Ajusta el tamaño del icono */
-	height: 20px;
-	vertical-align: middle;
   }
 
 .user-avatar,
