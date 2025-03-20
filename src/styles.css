@@ -1,23 +1,9 @@
-body {
-	font-family: Arial, sans-serif;
-	background: #000000;
-	margin: 0;
-	padding: 0;
-}
-
-.container {
-	max-width: 1300px;
-	margin: auto;
-	background: rgb(0, 0, 0);
-	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-.auth-container {
+.header {
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
+	justify-content: space-between;
 	background-color: #222;
-	padding: 15px;
+	padding: 5px;
   }
 
   .logo h1 {
@@ -32,19 +18,86 @@ body {
 	-webkit-text-fill-color: transparent; /* Hace el texto transparente para mostrar el degradado */
 	display: inline-block;
 	padding: 10px 20px;
-	border-radius: 8px;
-	position: fixed;
 	top: 10px;
 	left: 10px;
 	z-index: 1000;
 	margin: 0;
   }
 
-.post-form input,
-.post-form textarea {
+  .ia-image {
 	width: 100%;
-	margin-bottom: 10px;
-	padding: 8px;
+	height: 100%;
+	object-fit: cover;
+  }
+
+body {
+	font-family: Arial, sans-serif;
+	background: #000000;
+	margin: 0;
+	padding: 0;
+	background-image: url('https://img.asmedia.epimg.net/resizer/v2/YZBVQL7EXNF5NESXYCNP2NMMEQ.jpg?auth=93c621f33452faa67e47d50a4803953522276428b7fbe71685fc23e0fbc836b3&width=1288&height=725&smart=true');
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.post-form {
+	max-width: 500px; /* Ancho máximo del formulario */
+    margin: 20px auto; /* Centrar el formulario */
+    padding: 20px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    /* background-color: #f9f9f9; */
+	background-image: url('https://poptv.orange.es/wp-content/uploads/sites/3/2023/06/ia-01.jpg');
+	background-position: 60%;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.post-form input[type="text"],
+.post-form textarea {
+    width: calc(100% - 22px); /* Ajustar el ancho para el relleno y el borde */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ffffff;
+    border-radius: 3px;
+    font-size: 16px;
+	background-color: transparent;
+	transition: background-color 0.3s ease;
+}
+
+.post-form input[type="text"]::placeholder,
+.post-form textarea::placeholder {
+    color: white; /* Placeholder blanco por defecto */
+}
+
+.post-form input[type="text"]:focus::placeholder,
+.post-form textarea:focus::placeholder {
+    color: black; /* Placeholder negro al hacer foco */
+}
+
+.post-form input[type="text"]:focus,
+.post-form textarea:focus {
+    background-color: rgba(255, 255, 255, 0.8); /* Cambia a gris claro al hacer foco */
+}
+
+.post-form textarea {
+    height: 150px; /* Altura del área de texto */
+    resize: vertical; /* Permitir redimensionar verticalmente */
+}
+
+.post-form button[type="submit"] {
+    background-color: #ffffff; /* Color de fondo del botón */
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    border: #000000;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.post-form button[type="submit"]:hover {
+    background-color: #333; /* Fondo gris al pasar el cursor */
+    color: white; /* Texto blanco al pasar el cursor */
 }
 
 .post-card {
@@ -63,8 +116,9 @@ body {
 	background: linear-gradient(45deg, #ffe341, #ff4b2b);
 	color: rgb(0, 0, 0);
 	border: none;
-	padding: 10px;
+	padding: 8px 20px;
 	cursor: pointer;
+	border-radius: 8px;
   }
   .auth-button button:hover {
 	background: linear-gradient(45deg, #aaaaaa, #ffffff);
