@@ -54,8 +54,7 @@ export default function PostForm({ db, posts, setPosts }) {
   };
 
   return (
-    <div className="">
-      <form onSubmit={handleSubmit} className="post-form">
+    <form onSubmit={handleSubmit} className="post-form">
         <input
           type="text"
           placeholder="Título"
@@ -75,6 +74,5 @@ export default function PostForm({ db, posts, setPosts }) {
         />
         <button type="submit">Publicar</button>
       </form>
-    </div>
   );
 }
