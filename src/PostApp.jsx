@@ -14,10 +14,10 @@ import {
 	doc,
 } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
-import "./styles.css";
 import Auth from "./Auth";
 import PostForm from "./PostForm";
 import PostList from "./PostList";
+import "./PostApp.css"
 
 const firebaseConfig = {
 	apiKey: process.env.REACT_APP_apiKey,
@@ -54,7 +54,7 @@ export default function PostApp() {
 	console.log(posts);
 
 	return (
-		<div className="container">
+		<div>
 			<Auth
 				user={user}
 				setUser={setUser}
@@ -63,11 +63,11 @@ export default function PostApp() {
 			/>
 			{user && (
 				<>
-					<PostForm
+					{/* <PostForm
 						db={db}
 						posts={posts}
 						setPosts={setPosts}
-					/>
+					/>  */}
 					<PostList
 						posts={posts}
 						db={db}

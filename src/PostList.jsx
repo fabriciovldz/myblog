@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { updateDoc, doc, arrayUnion } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
+import "./PostList.css"
 
 export default function PostList({ posts, db, setPosts }) {
   const [newComment, setNewComment] = useState("");
@@ -62,7 +63,7 @@ export default function PostList({ posts, db, setPosts }) {
   };
 
   return (
-    <div className="body">
+    <div>
       <div className="post-list">
         {posts.map((post) => (
           <div key={post.id} className="post-card">

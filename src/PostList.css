@@ -1,0 +1,82 @@
+  .post-card {
+    width: 90%;
+    max-width: 600px; /* Limita el ancho de la tarjeta */
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .post-details {
+    width: 100%;
+  }
+  
+  .post-details img {
+    width: 100%;
+    max-height: 300px; /* Evita que se expanda */
+    object-fit: cover; /* Ajusta la imagen */
+    border-radius: 10px;
+    display: block;
+  }
+  
+  /* Ajustes del botón de comentario */
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border: none;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 5px;
+  }
+  
+  button img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* Ajustes de la sección de comentarios */
+  .comments-section {
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .comment {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+  }
+  
+  .comment-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+  
+  .add-comment {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+  }
+  
+  .add-comment textarea {
+    width: 100%;
+    min-height: 50px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .add-comment button {
+    align-self: flex-start;
+  }
+  

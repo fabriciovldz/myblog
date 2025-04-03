@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
+import "./PostForm.css"
 
 export default function PostForm({ db, posts, setPosts }) {
   const [title, setTitle] = useState("");

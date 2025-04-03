@@ -1,5 +1,8 @@
 import React from "react";
 import { signInWithPopup, signOut } from "firebase/auth";
+import LoginButton from "./LoginButton";
+import "./Auth.css";
+import CubeScene from "./CubeScene";
 
 export default function Auth({ user, setUser, auth, provider }) {
   const handleSignIn = async () => {
@@ -21,26 +24,23 @@ export default function Auth({ user, setUser, auth, provider }) {
   };
 
   return (
-    <div className="body">
-      <header className="header">
-        <div className="logo">
-          <h1>MyBlog</h1>
+    <div>
+        <div>
+          <h1>PlaceHolderNameSite</h1>
         </div>
+      <div className="cube-contenedor">      
+        {!user && (
+        <div>
+          <CubeScene></CubeScene>
+        </div>
+        )} 
+      </div>
         <div className="auth-button">
-          {user ? (
-            <button onClick={handleSignOut}>Cerrar sesión</button>
-          ) : (
-            <button onClick={handleSignIn}>Iniciar sesión</button>
-          )}
+          <LoginButton
+            onClick={user ? handleSignOut : handleSignIn}
+            text={user ? "Cerrar sesión" : "Iniciar sesión"}
+          />
         </div>
-      </header>
-      {/* <main>
-        <img
-          src="https://img.asmedia.epimg.net/resizer/v2/YZBVQL7EXNF5NESXYCNP2NMMEQ.jpg?auth=93c621f33452faa67e47d50a4803953522276428b7fbe71685fc23e0fbc836b3&width=1288&height=725&smart=true"
-          alt="IA en películas"
-          className="ia-image"
-        />
-      </main> */}
     </div>
   );
 }
