@@ -1,3 +1,4 @@
+
 .header {
 	display: flex;
 	align-items: center;
@@ -5,17 +6,22 @@
 	background-color: #222;
 	padding: 5px;
   }
-
+  .lato-regular {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
   .logo h1 {
-	font-size: 24px; /* Tamaño grande para destacar */
-	font-weight: bold; /* Texto en negrita */
-	font-family: 'Arial', sans-serif; /* Fuente moderna */
-	color: white; /* Color del texto */
-	text-transform: uppercase; /* Mayúsculas */
-	letter-spacing: 2px; /* Espaciado entre letras */
-	background: linear-gradient(45deg, #ffe341, #ff4b2b); /* Degradado */
-	-webkit-background-clip: text; /* Aplica el degradado solo al texto */
-	-webkit-text-fill-color: transparent; /* Hace el texto transparente para mostrar el degradado */
+	font-size: 24px; 
+	font-weight: bold; 
+	font-family: 'Arial', sans-serif; 
+	color: white; 
+	text-transform: uppercase; 
+	letter-spacing: 2px; 
+	background: linear-gradient(45deg, #a7c957, #386641); 
+	-webkit-background-clip: text; 
+	-webkit-text-fill-color: transparent; 
 	display: inline-block;
 	padding: 10px 20px;
 	top: 10px;
@@ -24,28 +30,41 @@
 	margin: 0;
   }
 
-  .ia-image {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-  }
-
-body {
-	background: #000000;
-	margin: 0;
+  html, body {
+	--sz: 28px;
+	--c1: #a7c957;
+	--c2: #6a994e;
+	--c3: #386641;
+	--c4: #4a8656;   
+	--ts: 50%/ calc(var(--sz) * 5.5) calc(var(--sz) * 9.5);
+	--b1: conic-gradient(from 180deg at 16% 73.5%, var(--c2) 0 120deg, #fff0 0 100%) var(--ts);
+	--b2: conic-gradient(from 180deg at 39.5% 65.65%, var(--c3) 0 60deg, var(--c1) 0 120deg, #fff0 0 100%) var(--ts);
+	font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;;
+    margin: 0;
 	padding: 0;
-	background-image: url('https://img.asmedia.epimg.net/resizer/v2/YZBVQL7EXNF5NESXYCNP2NMMEQ.jpg?auth=93c621f33452faa67e47d50a4803953522276428b7fbe71685fc23e0fbc836b3&width=1288&height=725&smart=true');
-	background-repeat: no-repeat;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+	background: 
+		conic-gradient(from 0deg at 92.66% 50%, var(--c2) 0 120deg, #fff0 0 100%) var(--ts),
+		conic-gradient(from -60deg at 81.66% 10.25%, var(--c2) 0 180deg, #fff0 0 100%) var(--ts),
+		conic-gradient(from -60deg at 66.66% 22.25%, var(--c1) 0 120deg, #fff0 0 100%) var(--ts),
+		conic-gradient(from 0deg at 71.66% 43%, var(--c3) 0 120deg, #fff0 0 100%) var(--ts),
+		conic-gradient(from 0deg at 66.66% 45.95%, var(--c3) 0 60deg, #fff0 0 100%) var(--ts),
+		conic-gradient(from 120deg at 25% 91.5%, var(--c1) 0 120deg, #fff0 0 100%) var(--ts),
+		var(--b1), var(--b1), var(--b1), var(--b1),	var(--b2), var(--b2), var(--b2), var(--b2),      
+		conic-gradient(from 60deg at 50% 51.5%, var(--c1) 0 60deg, var(--c2) 0 120deg, var(--c4) 0 100%) var(--ts);
 }
 
 .post-form {
-	max-width: 500px; /* Ancho máximo del formulario */
-    margin: 20px auto; /* Centrar el formulario */
+	max-width: 500px; 
+    margin: 20px auto; 
     padding: 20px;
     border: 1px solid #ffffff;
     border-radius: 5px;
-    /* background-color: #f9f9f9; */
-	background-image: url('https://poptv.orange.es/wp-content/uploads/sites/3/2023/06/ia-01.jpg');
+	background-image: url('https://wallpapers.com/images/featured/cool-black-background-zuepoib34iujg4he.jpg');
 	background-position: 60%;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -53,7 +72,7 @@ body {
 
 .post-form input[type="text"],
 .post-form textarea {
-    width: calc(100% - 22px); /* Ajustar el ancho para el relleno y el borde */
+    width: calc(100% - 22px); 
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ffffff;
@@ -65,26 +84,26 @@ body {
 
 .post-form input[type="text"]::placeholder,
 .post-form textarea::placeholder {
-    color: white; /* Placeholder blanco por defecto */
+    color: white; 
 }
 
 .post-form input[type="text"]:focus::placeholder,
 .post-form textarea:focus::placeholder {
-    color: black; /* Placeholder negro al hacer foco */
+    color: black;
 }
 
 .post-form input[type="text"]:focus,
 .post-form textarea:focus {
-    background-color: rgba(255, 255, 255, 0.8); /* Cambia a gris claro al hacer foco */
+    background-color: rgba(255, 255, 255, 0.8); 
 }
 
 .post-form textarea {
-    height: 150px; /* Altura del área de texto */
-    resize: vertical; /* Permitir redimensionar verticalmente */
+    height: 150px; 
+    resize: vertical; 
 }
 
 .post-form button[type="submit"] {
-    background-color: #ffffff; /* Color de fondo del botón */
+    background-color: #ffffff; 
     color: rgb(0, 0, 0);
     padding: 10px 20px;
     border: #000000;
@@ -94,30 +113,71 @@ body {
 }
 
 .post-form button[type="submit"]:hover {
-    background-color: #333; /* Fondo gris al pasar el cursor */
-    color: white; /* Texto blanco al pasar el cursor */
+    background-color: #333; 
+    color: white; 
 }
 
-.auth-button button {
-	background-color: transparent;
-	color: rgb(255, 255, 255);
-	border-color: #939393;
-    border-radius: 5px;
-	padding: 8px 20px;
-	cursor: pointer;
-	border-radius: 8px;
-	transition: background-color 0.3s ease;
+  a {
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px;
+    border: 2px solid #fefefe;
+    text-transform: uppercase;
+    color: #fefefe;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 20px;
   }
-  .auth-button button:hover {
-	background-color: #939393;
-	color: #000000;
+  
+  a::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: -2px;
+    width: calc(100% + 4px);
+    height: calc(100% - 12px);
+    background-color: #212121;
+    transition: 0.3s ease-in-out;
+    transform: scaleY(1);
   }
-
+  
+  a:hover::before {
+    transform: scaleY(0);
+  }
+  
+  a::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: -2px;
+    height: calc(100% + 4px);
+    width: calc(100% - 12px);
+    background-color: #212121;
+    transition: 0.3s ease-in-out;
+    transform: scaleX(1);
+    transition-delay: 0.5s;
+  }
+  
+  a:hover::after {
+    transform: scaleX(0);
+  }
+  
+  a span {
+    position: relative;
+    z-index: 3;
+  }
+  
+  button {
+    background-color: none;
+    text-decoration: none;
+    background-color: #212121;
+    border: none;
+  }
 .post-list {
     display: grid;
 	background-color: #000000;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adaptable a diferentes tamaños de pantalla */
-    gap: 20px; /* Espacio entre las tarjetas de películas */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 20px; 
     padding: 20px;
 }
 
@@ -130,13 +190,13 @@ body {
 }
 
 .post-details {
-    margin-bottom: 20px; /* Espacio debajo del título y la imagen */
+    margin-bottom: 20px; 
 }
 
 .post-details h3 {
-    font-size: 1.8em; /* Tamaño del título */
-    margin-bottom: 10px; /* Espacio debajo del título */
-    color: #000000; /* Color del título */
+    font-size: 1.8em; 
+    margin-bottom: 10px; 
+    color: #000000; 
 }
 
 .post-details img {
@@ -159,8 +219,8 @@ body {
 }
 
 .post-card button img {
-    width: 20px; /* Ajusta el ancho de la imagen */
-    height: 20px; /* Ajusta el alto de la imagen */
+    width: 20px; 
+    height: 20px;
 }
 
 .post-card button:hover {
@@ -171,13 +231,12 @@ body {
     display: block;
     align-items: center;
     margin-top: 20px;
-    border-top: 1px solid #000000; /* Separador */
+    border-top: 1px solid #000000;
     padding-top: 15px;
 }
 
 .user-details {
     display: flex;
-    /* flex-direction: column; */
     align-items: center;
 }
 
@@ -190,7 +249,7 @@ body {
 
 .comments-section {
     margin-top: 20px;
-    border-top: 1px solid #000000; /* Separador */
+    border-top: 1px solid #000000; 
     padding-top: 15px;
 }
 
@@ -218,11 +277,11 @@ body {
 }
 
 .add-comment textarea:focus {
-    border-color: #007bff; /* Color del borde al hacer foco */
+    border-color: #007bff; 
 }
 
 .add-comment button {
-    background-color: #ffffff; /* Color verde para "Agregar Comentario" */
+    background-color: #ffffff; 
     color: rgb(0, 0, 0);
     padding: 8px 15px;
     border-color: #939393;
