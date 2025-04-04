@@ -73,7 +73,9 @@ export default function PostList({ posts, db, setPosts }) {
 			</div>
 
 			{/* Lista de Posts */}
-			<h2 className="title-postlist" style={{ color: "white" }}>📢 Publicaciones</h2>
+			<div className="container-title">
+			<h2 style={{ color: "white" }}>📢 Publicaciones</h2>
+			</div>
 			<div className="post-list">
 				{posts.map((post) => (
 					<Post

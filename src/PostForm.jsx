@@ -72,7 +72,7 @@ export default function PostForm({ db, posts, setPosts }) {
           value={details}
           onChange={(e) => setDetails(e.target.value)}
         />
-        <button type="submit">Publicar</button>
+        <button className="button-submit" type="submit"><span> Publicar </span></button>
       </form>
   );
 }
