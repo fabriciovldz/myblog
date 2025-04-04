@@ -28,9 +28,22 @@ export default function Auth({ user, setUser, auth, provider }) {
 				</div>
 				<div>
 					{user ? (
-						<button onClick={handleSignOut}><a><span>Cerrar sesión</span></a></button>
+						<div>
+							<h3 style={{ color: "white", fontSize: "1.2rem", border: "0px" }}>
+								Bienvenido {user.displayName.split(" ")[0]}!
+							</h3>
+							<button onClick={handleSignOut}>
+								<a>
+									<span>Cerrar sesión</span>
+								</a>
+							</button>
+						</div>
 					) : (
-						<button onClick={handleSignIn}><a><span>Iniciar sesión</span></a></button>
+						<button onClick={handleSignIn}>
+							<a>
+								<span>Iniciar sesión</span>
+							</a>
+						</button>
 					)}
 				</div>
 			</header>

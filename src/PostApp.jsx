@@ -55,19 +55,35 @@ export default function PostApp() {
 
 	return (
 		<div className="container">
-			<Auth
-				user={user}
-				setUser={setUser}
-				auth={auth}
-				provider={provider}
-			/>
+			<div
+				style={{
+					position: "sticky",
+					top: "0",
+					width: "100%",
+					backgroundColor: "#fff",
+					boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.1)",
+					zIndex: "1000",
+				}}>
+				<Auth
+					user={user}
+					setUser={setUser}
+					auth={auth}
+					provider={provider}
+				/>
+			</div>
 			{user && (
 				<>
-					<PostForm
-						db={db}
-						posts={posts}
-						setPosts={setPosts}
-					/>
+					<div
+						style={{
+							backgroundImage:
+								'url("https://wallpapers.com/images/featured/cool-black-background-zuepoib34iujg4he.jpg")',
+						}}>
+						<PostForm
+							db={db}
+							posts={posts}
+							setPosts={setPosts}
+						/>
+					</div>
 					<PostList
 						posts={posts}
 						db={db}
