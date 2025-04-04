@@ -1,129 +1,79 @@
-import React, { useState } from "react";
-import { updateDoc, doc, arrayUnion } from "firebase/firestore";
-import { getAuth } from "firebase/auth";
+import React from "react";
+import Post from "./Post";
+import {
+	VerticalTimeline,
+	VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
+import { FaFilm } from "react-icons/fa";
 
 export default function PostList({ posts, db, setPosts }) {
-	const [newComment, setNewComment] = useState("");
-
-	const handleLike = async (id, likes) => {
-		const postRef = doc(db, "post", id);
-		try {
-			await updateDoc(postRef, { likes: likes + 1 });
-			setPosts(
-				posts.map((post) =>
-					post.id === id ? { ...post, likes: likes + 1 } : post
-				)
-			);
-		} catch (error) {
-			console.error("Error al dar like:", error);
-		}
-	};
-
-	const handleComment = async (postId) => {
-		if (!newComment.trim()) return; // No agregar comentarios vacíos
-
-		const auth = getAuth();
-		const user = auth.currentUser;
-
-		if (!user) {
-			alert("Debes iniciar sesión para comentar.");
-			return;
-		}
-
-		const commentData = {
-			commentText: newComment,
-			createdAt: new Date(),
-			createdBy: {
-				uid: user.uid,
-				displayName: user.displayName,
-				photoURL: user.photoURL,
-			},
-		};
-
-		const postRef = doc(db, "post", postId);
-		try {
-			await updateDoc(postRef, {
-				comments: arrayUnion(commentData),
-			});
-
-			// Actualizamos los comentarios en el estado local
-			setPosts(
-				posts.map((post) =>
-					post.id === postId
-						? { ...post, comments: [...post.comments, commentData] }
-						: post
-				)
-			);
-
-			setNewComment(""); // Limpiar campo de comentario
-		} catch (error) {
-			console.error("Error al agregar comentario:", error);
-		}
-	};
+	const timelineData = [
+		{
+			title: "Iron Man (2008)",
+			text: "Asistente básico con memoria limitada.",
+		},
+		{
+			title: "Iron Man 2 (2010)",
+			text: "Uso de sarcasmo e interpretación social.",
+		},
+		{ title: "The Avengers (2012)", text: "Defensa autónoma de sistemas." },
+		{
+			title: "Iron Man 3 (2013)",
+			text: "Predicción avanzada y toma de decisiones.",
+		},
+		{ title: "Age of Ultron (2015)", text: "Evolución en Vision." },
+	];
 
 	return (
-		<div className="post-list">
+		<div>
+			{/* Post Destacado */}
+			<div className="featured-post">
+				<h2>✨ Destacado de la semana</h2>
+				<h3>Iron Man (2008)</h3>
+				<p>
+					J.A.R.V.I.S. es más que un simple asistente virtual: es una IA
+					avanzada con memoria limitada, capaz de aprender y optimizar su
+					desempeño. Un claro ejemplo de esto ocurre cuando Tony prueba su
+					armadura a gran altitud y J.A.R.V.I.S. predice la formación de hielo,
+					evitando un posible fallo catastrófico.
+				</p>
+				<p>
+					Esta escena demuestra cómo J.A.R.V.I.S. piensa y actúa racionalmente,
+					analizando datos en tiempo real para tomar decisiones lógicas. Aunque
+					no tiene conciencia propia, su capacidad de anticipación y asistencia
+					lo convierte en un sistema clave para el desarrollo tecnológico de
+					Stark.
+				</p>
+			</div>
+
+			{/* Línea de Tiempo */}
+			<h2>📅 Evolución de J.A.R.V.I.S.</h2>
+			<VerticalTimeline>
+				{timelineData.map((event, index) => (
+					<VerticalTimelineElement
+						key={index}
+						className="vertical-timeline-element--work"
+						contentStyle={{ background: "#1e293b", color: "#fff" }}
+						contentArrowStyle={{ borderRight: "7px solid  #1e293b" }}
+						iconStyle={{ background: "#facc15", color: "#fff" }}
+						icon={<FaFilm />}>
+						<h3 className="vertical-timeline-element-title">{event.title}</h3>
+						<p>{event.text}</p>
+					</VerticalTimelineElement>
+				))}
+			</VerticalTimeline>
+
+			{/* Lista de Posts */}
+			<h2>📢 Publicaciones</h2>
 			{posts.map((post) => (
-				<div
+				<Post
 					key={post.id}
-					className="post-card">
-					<h3>{post.title}</h3>
-					<img
-						src={post.image}
-						alt={post.title}
-					/>
-					<p>{post.details}</p>
-					<button onClick={() => handleLike(post.id, post.likes)}>
-						👍 {post.likes}
-					</button>
-
-					{/* Información del usuario que creó el post */}
-					<div className="user-info">
-						<h4>Publicado por:</h4>
-						<img
-							src={post.createdBy.photoURL}
-							alt={post.createdBy.displayName}
-							className="user-avatar"
-						/>
-						<p>{post.createdBy.displayName}</p>
-					</div>
-
-					{/* Sección de comentarios */}
-					<div className="comments-section">
-						<h4>Comentarios:</h4>
-						{post.comments && post.comments.length > 0 ? (
-							post.comments.map((comment, index) => (
-								<div
-									key={index}
-									className="comment">
-									<img
-										src={comment.createdBy.photoURL}
-										alt={comment.createdBy.displayName}
-										className="comment-avatar"
-									/>
-									<p>
-										<strong>{comment.createdBy.displayName}:</strong>{" "}
-										{comment.commentText}
-									</p>
-								</div>
-							))
-						) : (
-							<p>No hay comentarios todavía.</p>
-						)}
-
-						{/* Formulario para agregar un comentario */}
-						<div className="add-comment">
-							<textarea
-								value={newComment}
-								onChange={(e) => setNewComment(e.target.value)}
-								placeholder="Escribe un comentario..."
-							/>
-							<button onClick={() => handleComment(post.id)}>
-								Agregar Comentario
-							</button>
-						</div>
-					</div>
-				</div>
+					post={post}
+					db={db}
+					setPosts={setPosts}
+					posts={posts}
+				/>
 			))}
 		</div>
 	);
